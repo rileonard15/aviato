@@ -1,0 +1,33 @@
+{% extends 'frontend/index.html' %}
+
+{% block content %}
+
+<form action="/lists" method="POST">
+    <input type="input" name="title" placeholder="title">
+
+    <textarea name="description"></textarea>
+    <input type="input" name="location" placeholder="location">
+    <input type="input" name="price" placeholder="Price">
+    <input type="input" name="type" placeholder="Type">
+    <input type="input" name="size" placeholder="Sq Ft">
+
+    <select name="developer">
+    {% for developer in developers %}
+        <option value="{{ developer.id }}">{{ developer.name }}</option>
+    {% endfor %}
+    </select>
+
+    {% for key, val in amenities.items() %}
+        <input type="text" name="amenities_{{ key }}" value="{{ value }}" placeholder="{{ key }}">
+    {% endfor %}
+
+    <input type="submit" value="ADD THIS" class="btn btn-primary">
+</form>
+
+{% endblock %}
+
+{% block jsbottom %}
+
+
+
+{% endblock %}

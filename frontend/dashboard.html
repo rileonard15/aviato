@@ -1,0 +1,41 @@
+{% extends 'frontend/index.html' %}
+
+{% block content %}
+
+<table class="table table-striped">
+    <tr>
+        <td>TITLE</td>
+        <td>LOCATION</td>
+        <td>AMENITIES</td>
+        <td>DEVELOPER</td>
+        <td>STATUS</td>
+        <td>ACTION</td>
+    </tr>
+    {% for property in properties %}
+        <tr>
+            <td>{{ property.title }}</td>
+            <td>{{ property.location }}</td>
+            <td>
+                {% for key, value in property.amenities.items() %}
+                    {{ key }}: {{ value }},
+                {% endfor %}
+            </td>
+            <td>{{ property.developer.name }}</td>
+            <td>{{ property.status }}</td>
+            <td><a href="#">EDIT</a> | <a href="#">DELETE</a></td>
+
+
+            <!-- reserve code don't delete -->
+            <!-- <td>
+                {% for image in property.images["files"] %}
+                    <img src="{{ image['url'] }}" style="width:100px; heigth:100px">
+                {% endfor %}
+            </td> -->
+
+        </tr>
+    {% endfor %}
+
+</table>
+
+
+{% endblock %}

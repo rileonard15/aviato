@@ -1,0 +1,37 @@
+{% extends 'frontend/index.html' %}
+
+{% block content %}
+
+<form action="/developer" method="POST">
+    <input type="text" name="developer_name" placeholder="Developer Name">
+    <input type="text" name="developer_contact" placeholder="Developer Contact">
+    <input type="text" name="developer_code" placeholder="Developer Code">
+    <input type="submit" class="btn btn-primary">
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <td>CODE</td>
+        <td>NAME</td>
+        <td>CONTACTS</td>
+        <td>ACTION</td>
+    </tr>
+    {% for developer in developers %}
+        <tr>
+            <td>{{ developer.CODE }}</td>
+            <td>{{ developer.name }}</td>
+            <td>{{ developer.contacts }}</td>
+            <td><a href="#">EDIT</a> | <a href="#">DELETE</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+
+{% endblock %}
+
+{% block jsbottom %}
+
+
+
+{% endblock %}
